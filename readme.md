@@ -15,7 +15,7 @@ Projeto Python para **remover proteção de planilhas Excel** e **traduzir seu c
 
 ## Instalação
 
-Instale as dependências com:
+Instale as dependências:
 
 ```bash
 pip install xlwings google-cloud-translate
@@ -50,7 +50,7 @@ python desblock.py
 ```
 
 - Entrada: `input.xlsx`
-- Saída: `clean_copy.xlsx`
+- Saída: `copy.xlsx`
 
 ### 2. Traduzir o conteúdo da planilha
 
@@ -60,9 +60,9 @@ Traduz todas as células com texto da planilha desprotegida.
 python app.py
 ```
 
-- Entrada: `clean_copy.xlsx`
-- Saída: `translated_output.xlsx`
-- Padrão de idioma: de **Português** para **Inglês** (`pt` → `en`)
+- Entrada: `copy.xlsx`
+- Saída: `output.xlsx`
+- Padrão de idioma: de **Inglês** para **Português** (`en` → `pt`)
 
 Para mudar os idiomas, edite o `app.py`:
 
@@ -83,13 +83,16 @@ translate_sheet(input_file, output_file, src='pt', dest='en')
 
 ## Estrutura do Projeto
 
-```
-📂
-├── app.py             # Traduz a planilha
-├── desblock.py        # Remove proteção da planilha original
-├── key.json           # Chave da API do Google (não versionar)
-├── input.xlsx         # Planilha original (exemplo)
-├── clean_copy.xlsx    # Planilha desprotegida
-├── translated_output.xlsx  # Planilha traduzida
+```sh
+📦 Excel-Translator/
+├── 📁 scripts/
+│   ├── desblock.py        # Remove proteção da planilha original
+│   └── translator.py      # Traduz a planilha
+├── 📁 sheets/
+│   ├── input.xlsx         # Planilha original (Template)
+│   ├── copy.xlsx          # Planilha desprotegida
+│   └── output.xlsx        # Planilha traduzida
+├── main.py                # Inicia os scripts
+├── key.json               # Chave da API do Google (não versionar)
 └── README.md
 ```
