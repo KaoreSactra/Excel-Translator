@@ -67,7 +67,7 @@ python app.py
 Para mudar os idiomas, edite o `app.py`:
 
 ```python
-translate_sheet(input_file, output_file, src='pt', dest='en')
+translate_sheet(input_file, output_file, src='en', dest='pt')
 ```
 
 ---
